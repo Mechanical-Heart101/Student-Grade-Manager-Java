@@ -4,7 +4,7 @@ public class Grade
     private Course course;
     private int score;
 
-    public Grade(Student student, Course course, int score)
+    public Grade(Student student, Course course, int score) // creating an instance of the object
     {
         this.student = student;
         this.course = course;

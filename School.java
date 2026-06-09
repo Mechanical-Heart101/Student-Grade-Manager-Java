@@ -2,6 +2,7 @@ import java.util.ArrayList;
 public class School
 {
     private ArrayList<Student> students; // stores all the grades belonging to one student
+    private ArrayList<Course> courses; // stores the courses of the school
 
     /**
      * This constructor creates new school objects and initilaizes them to a new arrayList of student objects
@@ -9,6 +10,7 @@ public class School
     public School()
     {
         students = new ArrayList<Student>(); // stores the student objects themselves
+        courses = new ArrayList<Course>(); // stores the courses objects themselves
     }
 
     /**
@@ -118,6 +120,56 @@ public class School
         }
 
         return topStudent;
+    }
+
+    /** This is the setter method for the courses 
+     * @param Course new course
+    */
+    public void addCourse(Course newCourse)
+    {
+        courses.add(newCourse);
+    }
+
+    /**
+     * This is the findCourse helper method
+     * @param String courseID
+     * @return null or the associated course object
+     */
+    public Course findCourse(String courseID)
+    {
+        for (Course course : courses)
+        {
+            if (course.getCourseID().equals(courseID))
+            {
+                return course;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * This is the remove method for the courses
+     * @param course
+     */
+    public void removeCourse(String courseID)
+    {
+        Course course = findCourse(courseID);
+        if (course != null) // if found
+        {
+            courses.remove(course);
+        }
+    }
+
+    /**
+     * This is the display method foe the courses
+     * @return list of courses
+     */
+    public void displayCourses()
+    {
+        for (Course course : courses)
+        {
+            System.out.println(course); // print the course to the terminal
+        }
     }
 
     /**
